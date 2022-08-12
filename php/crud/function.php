@@ -31,6 +31,24 @@ function __construct()
 	return $oneresult;
 	}
 
+	public function log()
+	{
+	$name = $_POST["name"];
+	$password = $_POST["pwd"];
+	$login = "SELECT * FROM `tblusers` WHERE `name` LIKE '%$name%' AND `password` = '$password'";
+	$lo = mysqli_query($this->dbh, $login );
+	// print_r($lo);
+    foreach ($lo as $l){
+		// print_r($l);
+
+		if($l==$name){
+		//   return true;
+		}
+		return true;
+	}
+	
+	}
+
     public function update($name,$password,$id)
 	{
 	$updaterecord=mysqli_query($this->dbh,"UPDATE  tblusers SET name='$name',password='$password' where id='$id' ");

@@ -1,19 +1,19 @@
 <?php 
-  class LoginOops
+  class admin
   {
     function log()
     {
      session_start();      
      if(isset($_POST['Submit'])):
-        $logins = array('mukesh' => '123456','username1' => 'password1','username2' => 'password2');
+        $logins = array('admin' => '123456','username1' => 'password1','username2' => 'password2');
         $Username = isset($_POST['Username']) ? $_POST['Username'] : '';
         $Password = isset($_POST['Password']) ? $_POST['Password'] : '';
         if(isset($logins[$Username]) && $logins[$Username] == $Password):
           $_SESSION['UserData']['Username']=$logins[$Username];
-          header("location:welcomeoops.php");
+          header("location:admintable.php");
           exit;
         else:
-          $msg="<span style='color:red'>Invalid Login Details</span>";
+          echo "<span  style='color:red'>Invalid Login Details</span>";
         endif;
      endif;
     }
@@ -25,10 +25,10 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>login oops</title>
+      <title>admin</title>
   </head>
   <body>
-    <form action="" method="post" name="Login_Form">
+    <form action="" method="post" name="Admin_Form">
         
       <table width="400" border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
         <?php if(isset($msg)){?>
@@ -37,7 +37,7 @@
         </tr>
         <?php } ?>
         <tr>
-          <td colspan="2" align="left" valign="top"><h3>Login</h3></td>
+          <td colspan="2" align="left" valign="top"><h3>Admin Login</h3></td>
         </tr>
         <tr>
           <td align="right" valign="top">Username</td>
@@ -53,7 +53,7 @@
         </tr>
       </table>
       <?php
-        $result = new LoginOops();
+        $result = new admin();
         echo $result->log();
         ?>
     </form>
