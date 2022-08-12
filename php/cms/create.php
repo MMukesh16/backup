@@ -119,10 +119,6 @@
             <input type="submit" name="submit" value="Submit">  <a href="welcome.php">Back to mainmenu</a> 
         </div>
 
-        <!-- <div class="col-md-8">
-                
-        </div>
-         -->
     </div>
 </form>
 
